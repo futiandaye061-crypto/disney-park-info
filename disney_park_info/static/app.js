@@ -17,13 +17,13 @@ select.addEventListener("change", async () => {
   const data = await response.json();
 
   if (!response.ok) {
-    errorEl.textContent = data.error || "Failed to load park status.";
+    errorEl.textContent = data.error || "パーク情報の取得に失敗しました。";
     return;
   }
 
   summary.textContent =
-    `${data.park.name}: Open ${data.open_count} / Closed ${data.closed_count} ` +
-    `- Average wait ${data.average_wait} min`;
+    `${data.park.name}: 営業中 ${data.open_count} / 休止中 ${data.closed_count} ` +
+    `- 平均待ち時間 ${data.average_wait}分`;
 
   const maxWait = data.rides.reduce((max, ride) => Math.max(max, ride.wait_time), 0);
 
@@ -32,7 +32,7 @@ select.addEventListener("change", async () => {
 
     const waitEl = document.createElement("span");
     waitEl.className = "wait-time";
-    waitEl.textContent = `${ride.wait_time} min`;
+    waitEl.textContent = `${ride.wait_time}分`;
 
     const barEl = document.createElement("span");
     barEl.className = "bar";

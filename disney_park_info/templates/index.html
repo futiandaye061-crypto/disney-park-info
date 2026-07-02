@@ -2,16 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Disney Park Info</title>
+  <title>ディズニーパーク混雑状況</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <main>
-    <h1>Disney Park Wait Times</h1>
+    <h1>ディズニーパーク待ち時間</h1>
 
-    <label for="park-select">Park</label>
+    <label for="park-select">パーク</label>
     <select id="park-select">
-      <option value="">-- Select a park --</option>
+      <option value="">-- パークを選択 --</option>
       {% for park in parks %}
         <option value="{{ park.key }}">{{ park.country }} - {{ park.name }}</option>
       {% endfor %}
