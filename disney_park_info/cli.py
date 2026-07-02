@@ -57,10 +57,19 @@ def main(argv: list[str] | None = None) -> int:
     status_parser = subparsers.add_parser("status", help="Show current wait times for a park")
     status_parser.add_argument("park_key", help="Park key, e.g. tokyo-disneyland (see 'list')")
 
+    serve_parser = subparsers.add_parser("serve", help="Start the local web UI")
+    serve_parser.add_argument("--port", type=int, default=5000, help="Port to listen on (default: 5000)")
+
     args = parser.parse_args(argv)
 
     if args.command == "list":
         _print_park_list()
+        return 0
+
+    if args.command == "serve":
+        from disney_park_info.web import app
+
+        app.run(port=args.port)
         return 0
 
     return _print_park_status(args.park_key)

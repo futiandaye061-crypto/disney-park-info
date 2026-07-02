@@ -1,7 +1,7 @@
 # disney-park-info
 
-A small CLI tool for checking current attraction wait times and congestion
-across Disney parks worldwide, using the free public
+A small CLI and web tool for checking current attraction wait times and
+congestion across Disney parks worldwide, using the free public
 [queue-times.com](https://queue-times.com) API.
 
 ## Supported parks
@@ -38,6 +38,17 @@ python -m disney_park_info status tokyo-disneyland
 Output is sorted by wait time (longest first) with a text bar showing
 relative congestion, plus a summary of open/closed attraction counts and
 the average wait time.
+
+### Web UI
+
+Start a local web server:
+
+```
+python -m disney_park_info serve
+```
+
+Then open http://127.0.0.1:5000 in a browser, pick a park from the
+dropdown, and see the same wait-time data as a sorted bar chart.
 
 ## Tests
 

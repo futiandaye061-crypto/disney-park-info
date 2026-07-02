@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Disney Park Info</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Disney Park Wait Times</h1>
+
+    <label for="park-select">Park</label>
+    <select id="park-select">
+      <option value="">-- Select a park --</option>
+      {% for park in parks %}
+        <option value="{{ park.key }}">{{ park.country }} - {{ park.name }}</option>
+      {% endfor %}
+    </select>
+
+    <div id="summary"></div>
+    <ul id="rides"></ul>
+    <p id="error" class="error"></p>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
