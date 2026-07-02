@@ -39,6 +39,12 @@ Output is sorted by wait time (longest first) with a text bar showing
 relative congestion, plus a summary of open/closed attraction counts and
 the average wait time.
 
+## Tests
+
+```
+python -m pytest tests/
+```
+
 ## Scope
 
 This tool only reads publicly available wait-time data. It does not
