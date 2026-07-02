@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ディズニーパーク混雑状況</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>ディズニーパーク待ち時間</h1>
+
+    <label for="park-select">パーク</label>
+    <select id="park-select">
+      <option value="">-- パークを選択 --</option>
+      {% for park in parks %}
+        <option value="{{ park.key }}">{{ park.country }} - {{ park.name }}</option>
+      {% endfor %}
+    </select>
+
+    <div id="summary"></div>
+    <ul id="rides"></ul>
+    <p id="error" class="error"></p>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
